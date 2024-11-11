@@ -31,7 +31,6 @@ Este projeto não possui testes automatizados por enquanto, mas você pode testa
 
 ## ✒️ Contribuidores
 
-* *Trabalho Inicial* - [Felipe Aguiar](https://github.com/felipeAguiarCode)
+* [Felipe Aguiar](https://github.com/felipeAguiarCode)
+* [Yan Fernandes](https://gist.github.com/yancfgomes)
 
----
-⌨️ com ❤️ por [Yan Fernandes](https://gist.github.com/yancfgomes) 😊
