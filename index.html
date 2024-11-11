@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +7,34 @@
   <link rel="stylesheet" href="./src/styles/reset.css">
   <link rel="stylesheet" href="./src/styles/main.css">
 </head>
-
 <body>
-  <div class="container">
-    <h2>JOGO DA MEMÓRIA</h2>
-    <div class="game"></div>
-    <button class="reset" onclick="window.location.reload()">RESET GAME</button>
+  <div class="site-container">
+    <header class="site-header">
+      <h1>Jogo da Memória</h1>
+      <img src="data:image/png;base64,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" alt="brain--v1">
+    </header>
+
+    <main class="site-main">
+      <section class="game-container">
+        <p id="legenda">Ache os Casais de Animais</p>
+        <div class="game"></div>
+        <button class="reset" onclick="window.location.reload()">RESET GAME</button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Desenvolvido por Yan Fernandes</p>
+      <div class="social-links">
+        <a href="https://github.com/yancfgomes" target="_blank" aria-label="GitHub">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADtklEQVR4nO2ZSWgVQRCGP2OCS3CJYoy7uCtiDi6o8aAIikvQi4oGvCiiRo2E6FXJQdxQg4LgUTx4cyPuHhVRD0bcsyDu4IJrTNTnSEMNPOfNm1czb2YSJD8UDNNT1fV3V1dX90AH/l8UAEuBfUAt8Bj4CLSKmOdH0ma+WQL0pp2gC1AGXAJ+A5ZPMToXgFViK3Z0AyqBVwGcTycvga1A17hILAAaQiTglHpgfpQEzNTXREjAKcdl5kNFf+BOjCQskVtAYVgkhst0W20kT8WHrNBP0qjVxtIAFAUl0bWNwsnyCLNAKfpoO3DecsjhICnWy+B2CbspwA7gWRbOmd1+G1As1cGBDN/P05LoptgnBruEoSH0A7gKVACzgNFAvsgYebcROAN8BTYDnR22ihWLXxVilYpRTLf75mlHy+PbAYr+zUB5oouy7Ah9o0pCkaL/F5lmpUwZ1+MiJFKi9GGll5FLSiPLIyRSrvThfDoDBT5K8eoIiRxT+vAL6OlmYKnSwGdZkFFhPPBT6Uupm4H9SmWT56PGSaUve92Ua5XK02Igskzpy1k35afKuMyNgchYJRFT0KbgvULRfBMHhiiJvHNTblUomm86xUBkoiMKPor8cfjT4qZsZ4rZUu+MAPoAA+XZljiIJCNXtoYC6dtUFYOSBjYFn6TxJnAXaJRQeiPPtqwgehz2iIrvScvAzFIKnkjjNUmxWyRPm4p1khw37VGJGjnS11BggmTKRVI575a7MPsIkIKL0rhLqsuDwCngOlAns/FBpnN1xLPRIqPdBDwAbgPngCNyFtrvVaZUKzOFkW8yU2FjncuC9pKdbkbm+jBgpBlYE1KomZJ8j08SRua4GeuuTMFOuSFryXnS0yBfBqMxQL8tXucie504xZxT1soGlM7wW+AEsEFGaiTQK8l2XznHmOvQKikvvgYgYImYkiotSj1SXomcwd8qw65KbihtFMq75iyct5JkYaa015RGsU7apwJfMpAwpNOhJAQy9eKLJyo8DJhcbpcQFyU07J84z4ErwOJMHQDrsyRSrr3duBckLn0gx6MPK4Pc9VOBzwQSLkYSIe4fGwKQSADT/XZ0JI2xT3KxNlgTpx4YFYBITZCO8qTu8tNRZ5/2/di+7PMC8B/09BnLfqG1+yCMP8DDgIdtSOS+nBhDQQ+pNOMmciWKf/F5UmInYiCSAA5FfdExWc4HURGpA2YQE3IlBTc4fvj7xeskfWNrU0zXTSnIkbLldFL54gelorswyz2pAx0gIvwFLXDNiM6zHVAAAAAASUVORK5CYII="  alt="GitHub" class="social-icon">
+        </a>
+        <a href="https://linkedin.com/in/yancfgomes" target="_blank" aria-label="LinkedIn">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACEklEQVR4nO2YO08CQRDH11jYGisTW7X1E1jZKcTSL2EQJHJbEAsJiZ2FhZ2FpbWFDY/IO0YN3GIEiQWFxhhBER8oMGZvFVC4wJ3mbi/ZfzIh7GyW+e3Mzh2LkJCQkBDfkrKLSCJhhEkVYQIGWRVhEkKSbP9b8FjeNDBoUDG//p03P3hgJtt0AChlw0HwBJBEgjoA5CeOMlDRDqC2mCcNyJUEtBJjn/S7ERCapRL8tC8FR5dlqNbqECmUYWojZQyEZvVaxJVUgu5UOF9mmbAEwEpM2flOPb3VWTlZAsBl9Qx42BmgEDQToXwJJi11BrDVu5AzAcgR7TY63s8vZQC5j9tznF8bsHZK+7xBAI4I9BId7+ef8CZhK1iE7HUVXt8b8PDyoZTi8n4ORtyJ/pk0E2DGn4LbSg3UdFKswLg3ybLEI0Dh7gX6KZQvwZArzifAoJrfyaiXkpkAjWZTqf+57TQs7WYhcFHqOW8vdcMOOm8A6wdXLDBa4540DK8m4PD8vmte7va53dF4AhjD8Z+t0pOG2a2zrnmPrx/qryVmATSbHf6WyTAqJVTmRvkCYP6o9rWwACAiA98SJYTFISaiCyHRRv/lH1mcPWh+Gx0fxK9lLfzXBxlPV4uS/KgdgN7Pmx04br07BfRkwM5PBjIL2gFYFvymB4+JT1/wLQjZptzPG3kmJPpbckD/zgsJCQkhg/QJ3PVUWJ5Zt98AAAAASUVORK5CYII="  alt="LinkedIn" class="social-icon">
+        </a>
+      </div>
+    </footer>
   </div>
 
   <script src="./src/scripts/engine.js" defer></script>
 </body>
-
 </html>

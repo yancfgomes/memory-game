@@ -1,61 +1,70 @@
-body {
+/* Configuração do Layout em Grid */
+.site-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  /* background: linear-gradient(180deg, #121212 0%, #1f1f1f 100%); */
+  background-color: #4fc876;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+.site-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.site-header, .site-footer {
+  background-color: #333333;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+}
+
+.site-header h1 {
+  font-size: 2.5em;
+  letter-spacing: 0.05em;
+}
+
+.site-footer p {
+  font-size: 1em;
+}
+
+/* Área Principal */
+.site-main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: #ffffff;
-  user-select: none;
+  padding: 20px;
 }
 
-.container {
-  position: relative;
+.game-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 30px;
-  background: linear-gradient(
-    325deg,
-    #03001e 0%,
-    #2610a5 30%,
-    #1003f5 70%,
-    #1b1b1b 100%
-  );
+  /* background-color: linear-gradient(325deg, #014421 0%, #016935 50%, #028c48 100%);  */
+  background-color: rgb(36, 36, 36); 
   padding: 40px 60px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-h2 {
-  font-size: 3em;
+
+#legenda {
+  font-size: 2em;
   color: #fff;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-.reset {
-  padding: 15px 20px;
-  width: 100%;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  font-size: 1.5em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.reset:focus {
-  color: #ec38bc;
-  background-color: #262809;
-}
-
+/* Jogo */
 .game {
   width: 430px;
   height: 430px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  transform-style: preserve-3d;
   perspective: 500px;
 }
 
@@ -66,11 +75,14 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-
-  font-size: 3em;
+  background-color: #2e2e2e;
+  color: #fff;
+  font-size: 2em;
+  border-radius: 8px;
   transform: rotateY(180deg);
-  transition: 0.25s;
+  transition: transform 0.4s;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .item::after {
@@ -78,17 +90,136 @@ h2 {
   position: absolute;
   inset: 0;
   background: #404040;
-  /* opacity: 0.85; */
-  transition: 0.25s;
+  border-radius: 8px;
+  transition: transform 0.4s;
   transform: rotateY(0deg);
   backface-visibility: hidden;
 }
 
 .item.boxOpen {
   transform: rotateY(0deg);
+  background-color: #ffffff;
+  color: #333333;
 }
 
 .boxOpen::after,
 .boxMatch::after {
   transform: rotateY(180deg);
+}
+
+.item.boxMatch {
+  background-color: #28a745;
+  color: #ffffff;
+  cursor: default;
+}
+
+/* Botão Reset */
+.reset {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.reset:hover {
+  background-color: #0056b3;
+}
+
+.reset:active {
+  transform: scale(0.98);
+}
+
+.site-footer {
+  background-color: #333333;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+
+/* Responsividade para Tablets */
+@media (max-width: 768px) {
+  .game {
+    width: 320px;
+    height: 320px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .item {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5em;
+  }
+
+  .game-container {
+    padding: 30px 40px;
+  }
+
+  .site-header h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+/* Responsividade para Smartphones */
+@media (max-width: 480px) {
+  .game {
+    width: 260px;
+    height: 260px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .item {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2em;
+  }
+
+  .game-container {
+    padding: 20px;
+  }
+
+  .site-header h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .reset {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
 }
